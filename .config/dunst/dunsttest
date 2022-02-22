@@ -1,0 +1,8 @@
+#! /bin/bash
+
+pidof dunst && killall dunst
+dunst &
+
+notify-send -u low "low urgency" "This is an urgency test"
+notify-send -u normal "normal urgency" "This is an urgency test"
+notify-send -u critical "critical urgency" "This is an urgency test"

@@ -1,0 +1,38 @@
+#! /bin/bash
+
+# Starts pulseaudio
+if [ -z $(pgrep pulseaudio) ]; then
+pulseaudio --start &
+fi
+
+# Starts the battery status script
+if [ -z $(pgrep battery-status) ]; then
+~/.config/scripts/battery-status.sh &
+fi
+
+# Enables tap to click and natural scrolling
+~/.config/scripts/touchpad.sh &
+
+# Sets the background
+feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/code.png' &
+
+# enables the picom compositor with blur and rounded corners (picom-ibhagwan)
+if [ -z $(pgrep picom) ]; then
+picom &
+fi
+
+# launches the dunst notification daemon
+if [ -z $(pgrep dunst) ]; then
+dunst &
+fi
+
+# Systemtray
+if [ -z $(pgrep trayer) ]; then
+    trayer --edge top --align left --widthtype request --heighttype request --transparent true --alpha 255 --tint 0x08090a &
+    hideIt.sh --name '^panel$' --region 0x0+-10+-40 --peek 1 -w &
+fi
+
+# Syncthing
+if [ -z $(pgrep syncthing) ]; then
+  syncthing &
+fi
