@@ -39,10 +39,12 @@ super + y
 Print
 	scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/screenshots'
 
+# Partial screenshot
 shift + Print
 	flameshot gui
 
-super + l
+# Locking screen
+super + shift + l
   betterlockscreen -l
 #
 # ============= Scripts ==============
@@ -62,7 +64,7 @@ super + shift + y
 
 # Rofi
 super + space
-  rofi -show drun -theme applications -show-icons
+	~/.config/rofi/bin/launcher
 
 # Sink control
 super + v
@@ -78,15 +80,15 @@ super + Tab
 
 # Powermenu
 super + x
-	~/.config/rofi/scripts/powermenu.sh
+	~/.config/rofi/bin/powermenu
 
 # Emoji selector
 super + shift + i
-	~/.config/rofi/scripts/emoji.sh
+	~/.config/rofi/bin/emoji
 
 # Feeds
 super + r
-	~/.config/rofi/scripts/feeds.sh
+	~/.config/rofi/bin/feed
 
 #
 # ================ Music Controls =======================
