@@ -68,7 +68,7 @@ super + space
 
 # Sink control
 super + v
-	~/.config/rofi/scripts/musicontrol.sh
+	~/.config/rofi/bin/quicklinks
 
 # Lofi radio
 super + shift + r
