@@ -45,6 +45,11 @@ source ~/.config/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 #alias cd='rpg-cd'
 #alias ls='rpg-ls'
 
+# git alias
+alias gc="git commit -m"
+alias ga="git add"
+alias gp="git push"
+alias gs="git status"
 # Useful aliases
 alias ls='exa -al --color=always --group-directories-first --icons'
 alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
