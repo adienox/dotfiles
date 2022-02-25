@@ -6,7 +6,7 @@
 ## Twitter : @adi1090x
 
 dir="$HOME/.config/rofi/applets/android"
-rofi_command="rofi -theme $dir/six.rasi"
+rofi_command="rofi -theme $dir/six.rasi -kb-row-down j -kb-row-up k"
 
 # Error msg
 msg() {
@@ -26,23 +26,23 @@ else
 fi
 
 # Links
-google=""
-facebook=""
+search=""
+sink=""
 twitter=""
 github=""
 mail=""
 youtube=""
 
 # Variable passed to rofi
-options="$google\n$facebook\n$twitter\n$github\n$mail\n$youtube"
+options="$search\n$sink\n$twitter\n$github\n$mail\n$youtube"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Open In  :  Firefox" -dmenu -selected-row 0)"
 case $chosen in
-    $google)
-        $app https://www.google.com &
+    $search)
+        $app http://localhost &
         ;;
-    $facebook)
-        $app https://www.facebook.com &
+    $sink)
+        $HOME/.config/scripts/sink.sh &
         ;;
     $twitter)
         $app https://www.twitter.com &
@@ -51,7 +51,7 @@ case $chosen in
         $app https://www.github.com &
         ;;
     $mail)
-        $app https://www.gmail.com &
+        $app https://mail.tutanota.com &
         ;;
     $youtube)
         $app https://www.youtube.com &
