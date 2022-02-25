@@ -14,7 +14,7 @@ fi
 ~/.config/scripts/touchpad.sh &
 
 # Sets the background
-feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/code.png' &
+feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/clouds.png' &
 
 # enables the picom compositor with blur and rounded corners (picom-ibhagwan)
 if [ -z $(pgrep picom) ]; then
@@ -35,4 +35,5 @@ fi
 # Syncthing
 if [ -z $(pgrep syncthing) ]; then
   syncthing &
+  notify-send -i /usr/share/icons/Papirus/16x16/emblems/emblem-syncthing-active.svg "Syncthing activated"
 fi
