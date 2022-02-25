@@ -1,0 +1,11 @@
+/* colors */
+
+* {
+  background-alt:  #00000000;
+  background:      #101010ff;
+  border:          #555555ff;
+  foreground:      #f5f5f5ff;
+  border-alt:      #42A5F5ff;
+  selected:        #EC7875ff;
+  urgent:          #61C766ff;
+}
