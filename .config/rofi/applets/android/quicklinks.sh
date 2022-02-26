@@ -27,11 +27,16 @@ fi
 
 # Links
 search=""
-sink=""
 twitter=""
 github=""
 mail=""
 youtube=""
+if [ -f "$HOME/.cache/is-headphones" ];
+then
+  sink=""
+else
+  sink=""
+fi
 
 # Variable passed to rofi
 options="$search\n$sink\n$twitter\n$github\n$mail\n$youtube"
