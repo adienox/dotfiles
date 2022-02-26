@@ -45,31 +45,37 @@ source ~/.config/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 #alias cd='rpg-cd'
 #alias ls='rpg-ls'
 
-# git alias
-alias gc="git commit -m"
-alias ga="git add"
-alias gp="git push"
-alias gs="git status"
-# Useful aliases
+
+# ls aliases
 alias ls='exa -al --color=always --group-directories-first --icons'
 alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
 alias ll='exa -l --color=always --group-directories-first --icons'  # long format
 alias lt='exa -aT --color=always --group-directories-first --icons' # tree listing
 alias l.="exa -a | egrep '^\.'"                                     # show only dotfiles
 
+# cd alias
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
 #docker aliases
 alias dps='docker ps -a'
 alias dc='docker'
 alias di='docker images'
-alias zap='docker run -u zap -p 8080:8080 -p 8090:8090 -d -i owasp/zap2docker-weekly zap-webswing.sh'
 alias dcp='docker container prune'
+
+# git alias
+alias gc="git commit -m"
+alias ga="git add"
+alias gp="git push"
+alias gs="git status"
 
 # Debug alias
 alias objdump='objdump -M intel -D'
 
-# this makes aliases work with sudo
 alias sudo='sudo '
-
 alias yt-audio='yt-dlp -x --audio-format mp3 --audio-quality 0'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
 alias wttr='curl "https://wttr.in/charpane?F0"'
@@ -78,18 +84,11 @@ alias cat='bat --style header --style rules --style snip --style changes --style
 alias wget='wget -c '
 alias psmem='ps auxf | sort -nr -k 4'
 alias psmem10='ps auxf | sort -nr -k 4 | head -10'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
 alias grep='grep --color=auto'
-alias fgrep='fgrep --color=auto'
-alias egrep='egrep --color=auto'
 alias hw='hwinfo --short'
 alias tb='nc termbin.com 9999'
-alias cleanup='sudo emerge --depclean'
 alias zc='v $HOME/.config/zsh/.zshrc'
+alias spotdl='spotdl --use-youtube'
 
 # Add local bin path if it exists
 if [ -d "$HOME/.local/bin" ] ; then
