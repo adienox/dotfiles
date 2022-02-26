@@ -18,7 +18,7 @@ feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/clouds.png' &
 
 # enables the picom compositor with blur and rounded corners (picom-ibhagwan)
 if [ -z $(pgrep picom) ]; then
-picom &
+  picom &
 fi
 
 # launches the dunst notification daemon
@@ -26,14 +26,24 @@ if [ -z $(pgrep dunst) ]; then
 dunst &
 fi
 
+# Start up polybar
+if [ -z $(pgrep polybar) ]; then
+  ~/.config/polybar/launch.sh &
+fi
+
 # Systemtray
 if [ -z $(pgrep trayer) ]; then
-    trayer --edge top --align left --widthtype request --heighttype request --transparent true --alpha 255 --tint 0x08090a &
-    hideIt.sh --name '^panel$' --region 0x0+-10+-40 --peek 1 -w &
+  trayer --edge top --align left --widthtype request --heighttype request --transparent true --alpha 255 --tint 0x08090a &
+  hideIt.sh --name '^panel$' --region 0x0+-10+-40 --peek 1 -w &
 fi
 
 # Syncthing
 if [ -z $(pgrep syncthing) ]; then
   syncthing &
   notify-send -i /usr/share/icons/Papirus/16x16/emblems/emblem-syncthing-active.svg "Syncthing activated"
+fi
+
+if [ -z $(pgrep promnesia) ]; then
+  ~/.local/bin/promnesia serve &
+  notify-send "Promnesia" "server started"
 fi
