@@ -43,9 +43,9 @@ Print
 shift + Print
 	flameshot gui
 
-# Locking screen
-super + shift + l
-  betterlockscreen -l
+# Polybar toggle
+super + b
+  polybar-msg cmd toggle
 #
 # ============= Scripts ==============
 #
