@@ -2,15 +2,15 @@
 
 # Starts pulseaudio
 if [ -z $(pgrep pulseaudio) ]; then
-pulseaudio --start &
+  pulseaudio --start &
 fi
 
 # Starts the battery status script
 if [ -z $(pgrep battery-status) ]; then
-~/.config/scripts/battery-status.sh &
+  ~/.config/scripts/battery-status.sh &
 fi
 
-# Enables tap to click and natural scrolling
+# Enables tap to click and natural scrolling for touchpad
 ~/.config/scripts/touchpad.sh &
 
 # Sets the background
@@ -23,7 +23,7 @@ fi
 
 # launches the dunst notification daemon
 if [ -z $(pgrep dunst) ]; then
-dunst &
+  dunst &
 fi
 
 # Start up polybar
@@ -43,7 +43,14 @@ if [ -z $(pgrep syncthing) ]; then
   notify-send -i /usr/share/icons/Papirus/16x16/emblems/emblem-syncthing-active.svg "Syncthing activated"
 fi
 
+# Starts up promnesia server
 if [ -z $(pgrep promnesia) ]; then
   ~/.local/bin/promnesia serve &
   notify-send "Promnesia" "server started"
+fi
+
+# Starts keepassxc (password manager)
+if [ -z $(pgrep keepassxc) ]; then
+  keepassxc &
+  notify-send -i /usr/share/icons/Papirus/16x16/apps/keepassxc.svg "keepassxc" "added to sys tray"
 fi
