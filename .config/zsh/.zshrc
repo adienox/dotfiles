@@ -45,7 +45,6 @@ source ~/.config/zsh/fsh/fast-syntax-highlighting.plugin.zsh
 #alias cd='rpg-cd'
 #alias ls='rpg-ls'
 
-
 # ls aliases
 alias ls='exa -al --color=always --group-directories-first --icons'
 alias la='exa -a --color=always --group-directories-first --icons'  # all files and dirs
@@ -75,6 +74,7 @@ alias gs="git status"
 # Debug alias
 alias objdump='objdump -M intel -D'
 
+# Useful aliases
 alias sudo='sudo '
 alias yt-audio='yt-dlp -x --audio-format mp3 --audio-quality 0'
 alias speedtest='curl -s https://raw.githubusercontent.com/sivel/speedtest-cli/master/speedtest.py | python -'
@@ -89,6 +89,7 @@ alias hw='hwinfo --short'
 alias tb='nc termbin.com 9999'
 alias zc='v $HOME/.config/zsh/.zshrc'
 alias spotdl='spotdl --use-youtube'
+alias ipa="ip --brief address"
 
 # Add local bin path if it exists
 if [ -d "$HOME/.local/bin" ] ; then
