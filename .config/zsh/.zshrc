@@ -62,7 +62,7 @@ alias ......='cd ../../../../..'
 #docker aliases
 alias dps='docker ps -a'
 alias dc='docker'
-alias di='docker images'
+alias dci='docker images'
 alias dcp='docker container prune'
 
 # git alias
