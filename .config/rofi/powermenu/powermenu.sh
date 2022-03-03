@@ -88,7 +88,7 @@ case $chosen in
 			mpc -q pause
 			amixer set Master mute
       betterlockscreen -l &
-			loginctl suspend
+			sleep 0.5 && loginctl suspend
 		elif [[ $ans == "no" || $ans == "NO" || $ans == "n" || $ans == "N" ]]; then
 			exit 0
         else
