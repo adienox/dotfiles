@@ -13,6 +13,10 @@ fi
 # Enables tap to click and natural scrolling for touchpad
 ~/.config/scripts/touchpad.sh &
 
+# Enable autolock and autosleep
+if [ -z $(pgrep xidlehook) ]; then
+~/.config/scripts/lockscreen.sh &
+
 # Sets the background
 feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/clouds.png' &
 
