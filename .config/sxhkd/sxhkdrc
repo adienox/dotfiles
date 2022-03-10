@@ -37,7 +37,7 @@ super + y
 
 # screenshot
 Print
-	scrot '%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f ~/Pictures/screenshots'
+	flameshot full -p ~/Pictures/screenshots
 
 # Partial screenshot
 shift + Print
