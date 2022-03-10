@@ -28,9 +28,9 @@ mail=""
 youtube=""
 if [ -f "$HOME/.cache/is-headphones" ];
 then
-  sink=""
-else
   sink=""
+else
+  sink=""
 fi
 
 # Variable passed to rofi
