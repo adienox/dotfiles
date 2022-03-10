@@ -22,7 +22,6 @@ fi
 
 # Links
 search=""
-twitter=""
 github=""
 mail=""
 youtube=""
@@ -32,9 +31,15 @@ then
 else
   sink=""
 fi
+if [ -f "$HOME/.cache/is-active-mic" ];
+then
+  source=""
+else
+  source=""
+fi
 
 # Variable passed to rofi
-options="$search\n$sink\n$twitter\n$github\n$mail\n$youtube"
+options="$search\n$sink\n$source\n$github\n$mail\n$youtube"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Open In  :  Firefox" -dmenu -selected-row 0)"
 case $chosen in
@@ -44,8 +49,8 @@ case $chosen in
     $sink)
         $HOME/.config/scripts/sink.sh &
         ;;
-    $twitter)
-        $app https://www.twitter.com &
+    $source)
+        $HOME/.config/scripts/pushToTalk.py &
         ;;
     $github)
         $app https://www.github.com &
