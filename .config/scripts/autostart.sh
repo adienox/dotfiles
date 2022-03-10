@@ -1,11 +1,11 @@
 #! /bin/bash
 
-# Starts pulseaudio
+#Starts pulseaudio
 if [ -z $(pgrep pulseaudio) ]; then
   pulseaudio --start &
 fi
 
-# Starts the battery status script
+#Starts the battery status script
 if [ -z $(pgrep battery-status) ]; then
   ~/.config/scripts/battery-status.sh &
 fi
@@ -16,6 +16,7 @@ fi
 # Enable autolock and autosleep
 if [ -z $(pgrep xidlehook) ]; then
 ~/.config/scripts/lockscreen.sh &
+fi
 
 # Sets the background
 feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/clouds.png' &
@@ -32,7 +33,7 @@ fi
 
 # Start up polybar
 if [ -z $(pgrep polybar) ]; then
-  ~/.config/polybar/launch.sh &
+  ~/.config/polybar/launch.sh >/dev/null &
 fi
 
 # Systemtray
@@ -42,19 +43,20 @@ if [ -z $(pgrep trayer) ]; then
 fi
 
 # Syncthing
-if [ -z $(pgrep syncthing) ]; then
-  syncthing &
-  notify-send -i /usr/share/icons/Papirus/16x16/emblems/emblem-syncthing-active.svg "Syncthing activated"
+if [ -z $(pidof syncthing | awk '{print $1}') ]; then
+  syncthing >/dev/null &
+  notify-send -i /usr/share/icons/Papirus/16x16/emblems/emblem-syncthing-active.svg "Syncthing activated" &
 fi
 
 # Starts up promnesia server
-if [ -z $(pgrep promnesia) ]; then
-  ~/.local/bin/promnesia serve &
-  notify-send "Promnesia" "server started"
-fi
+ if [ -z $(pgrep promnesia) ]; then
+   ~/.local/bin/promnesia serve >/dev/null &
+   notify-send "Promnesia" "server started"
+ fi
 
 # Starts keepassxc (password manager)
 if [ -z $(pgrep keepassxc) ]; then
   keepassxc &
   notify-send -i /usr/share/icons/Papirus/16x16/apps/keepassxc.svg "keepassxc" "added to sys tray"
 fi
+
