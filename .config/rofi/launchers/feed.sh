@@ -9,7 +9,7 @@ menu() {
     printf "2. Reddit\n"
     printf "3. Gemini\n"
     printf "4. Anime\n"
-    printf "5. SSH Sentinel"
+    printf "5. Wifi"
 }
 
 main() {
@@ -29,7 +29,7 @@ main() {
         alacritty --class anime,rss -t Anime -e ani-cli &
         ;;
       5)
-        $HOME/.config/scripts/sentinel.sh &
+        $HOME/.config/scripts/wifi.sh &
         ;;
     esac
 }
