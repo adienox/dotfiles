@@ -33,9 +33,9 @@ else
 fi
 if [ -f "$HOME/.cache/is-active-mic" ];
 then
-  source=""
-else
   source=""
+else
+  source=""
 fi
 
 # Variable passed to rofi
