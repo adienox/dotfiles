@@ -11,11 +11,11 @@ xidlehook \
   --not-when-audio \
   `# Dim the screen after 60 seconds, undim if user becomes active` \
   --timer 60 \
-    'xrandr --output "$PRIMARY_DISPLAY" --brightness .1' \
-    'xrandr --output "$PRIMARY_DISPLAY" --brightness 1' \
+    '$HOME/.config/scripts/lockFade.sh fade'\
+    '$HOME/.config/scripts/lockFade.sh restore'\
   `# Undim & lock after 15 more seconds` \
   --timer 15 \
-    'xrandr --output "$PRIMARY_DISPLAY" --brightness 1; betterlockscreen -l' \
+    '$HOME/.config/scripts/lockFade.sh restore; betterlockscreen -l' \
     '' \
   `# Finally, suspend an hour after it locks` \
   --timer 3600 \
