@@ -7,15 +7,15 @@ import sys # For exiting the process
 
 # Keypress event
 def onPress(key):
-    # Checks if key is key.pause
-    if key == keyboard.Key.pause:
+    # Checks if key is key.ctrl_r
+    if key == keyboard.Key.ctrl_r:
         # Unmutes the microphone
         os.system('pactl set-source-mute @DEFAULT_SOURCE@ false')
 
 # Key release event
 def onRelease(key):
-    # Checks if key is key.pause
-    if key == keyboard.Key.pause:
+    # Checks if key is key.ctrl_r
+    if key == keyboard.Key.ctrl_r:
         # Mutes the microphone
         os.system('pactl set-source-mute @DEFAULT_SOURCE@ true')
 
