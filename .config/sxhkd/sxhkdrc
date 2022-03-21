@@ -56,7 +56,7 @@ super + c
 
 # mpv from clipboard
 super + shift + y
-	~/.config/scripts/clip-mpv.sh
+	~/.config/scripts/logseqParser.sh
 
 #
 # ============= Rofi menus ==============
