@@ -10,7 +10,7 @@ local config = {
   -- Add plugins
   plugins = {
     { "catppuccin/nvim" },
-    { "wakatime/vim-wakatime" }
+    { "wakatime/vim-wakatime" },
   },
 
   overrides = {
