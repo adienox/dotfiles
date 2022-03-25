@@ -4,7 +4,7 @@ dir="$HOME/.config/rofi/powermenu"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
-rofi_command="rofi -theme $dir/$theme -kb-row-down j -kb-row-up k"
+rofi_command="rofi -theme $dir/$theme -kb-row-down j,Down -kb-row-up k,Up"
 
 # Options
 shutdown=""
