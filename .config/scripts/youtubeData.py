@@ -40,12 +40,15 @@ def getData(url):
 
     title = response['items'][0]['snippet']['title']
     channelName = response['items'][0]['snippet']['channelTitle']
-    tags = response['items'][0]['snippet']['tags']
     description = response['items'][0]['snippet']['description']
-
-    listTag = ''
-    for tag in tags:
-        listTag += '[[' + tag + ']] '
+    
+    try:
+        tags = response['items'][0]['snippet']['tags']
+        listTag = ''
+        for tag in tags:
+            listTag += '[[' + tag + ']] '
+    except:
+        listTag = ''
 
     date = dateparser.parse(response['items'][0]['snippet']['publishedAt'])
     ordinalDay = makeOrdinal(date.strftime("%d"))
@@ -53,28 +56,25 @@ def getData(url):
 
     return title, channelName, publishDate, listTag, description
 
-try:
-    url = sys.argv[1]
-    metadata = getData(url)
+url = sys.argv[1]
+metadata = getData(url)
 
-    ordinalCurrentDay = makeOrdinal(datetime.now().strftime("%d"))
-    ndate = datetime.now().strftime(f"%b {ordinalCurrentDay}, %Y")
+ordinalCurrentDay = makeOrdinal(datetime.now().strftime("%d"))
+ndate = datetime.now().strftime(f"%b {ordinalCurrentDay}, %Y")
 
-    print(f'''
-    ### Youtube
-    tags:: [[youtube]] {metadata[3]}
-    status:: [[🔸Doing / Synthesising]]
-    presenter:: [[{metadata[1]}]]
-    link:: {url}
-    title:: [[{metadata[0]}]]
-    published-on:: [[{metadata[2]}]]
-    processed-on:: [[{ndate}]]
-        - [[Youtube Embed]]
-            - {{{{youtube {url}}}}}
-        - [[Description]]
-            - #+BEGIN_VERSE\n{metadata[4]}\n#+END_VERSE
-        - [[Notes]]
-            - <!--Write notes here-->
-    ''')
-except:
-    print("Please provide youtube url!")
+print(f'''
+### Youtube
+tags:: [[youtube]] {metadata[3]}
+status:: [[🔸Doing / Synthesising]]
+presenter:: [[{metadata[1]}]]
+link:: {url}
+title:: [[{metadata[0]}]]
+published-on:: [[{metadata[2]}]]
+processed-on:: [[{ndate}]]
+    - [[Youtube Embed]]
+        - {{{{youtube {url}}}}}
+    - [[Description]]
+        - #+BEGIN_VERSE\n{metadata[4]}\n#+END_VERSE
+    - [[Notes]]
+        - <!--Write notes here-->
+''')
