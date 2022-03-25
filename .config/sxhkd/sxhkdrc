@@ -33,7 +33,7 @@ super + p
 
 # ytfzf
 super + y
-	alacritty --class ytfzf,floating -t Ytfzf -e ytfzf -tN
+	alacritty --class ytfzf,floating -t Ytfzf -e ytfzf -t
 
 # screenshot
 Print
@@ -195,8 +195,8 @@ super + bracket{left,right}
 	bspc desktop -f {prev,next}.local
 
 # focus the last node
-super + grave
-	bspc node -f last
+super + {grave,Tab}
+	bspc {node,desktop} -f last
 
 # focus the older or newer node in the focus history
 super + {o,i}
@@ -207,6 +207,14 @@ super + {o,i}
 # focus or send to the given desktop
 super + {_,shift + }{1-9,0}
 	bspc {desktop -f,node -d} '^{1-9,10}'
+
+# Window positioner
+super + ctrl + c
+  bspc node -t floating; \
+  bspc node -g sticky; \
+  bspc node -z top 0 395; \
+  bspc node -z right -779 0; \
+  bspc node -v 1115 -560
 
 #
 # =================== Preselect ======================
