@@ -17,11 +17,11 @@ super + n
 
 # browser
 super + w
-	librewolf
+	brave
 
 # browser alt
 super + shift + w
-	chromium
+	librewolf
 
 # ranger
 super + d
