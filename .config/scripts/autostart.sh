@@ -19,7 +19,7 @@ if [ -z $(pgrep xidlehook) ]; then
 fi
 
 # Sets the background
-feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/clouds.png' &
+feh --no-fehbg --bg-scale '/home/nex/Pictures/wallpapers/castle.png' &
 
 # enables the picom compositor with blur and rounded corners (picom-ibhagwan)
 if [ -z $(pgrep picom) ]; then
