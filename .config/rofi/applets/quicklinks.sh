@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 dir="$HOME/.config/rofi/applets"
+sinkDevice=$(pactl list sinks | awk '/Active/{print $3}')
 rofi_command="rofi -theme $dir/six.rasi -kb-row-down j -kb-row-up k"
 
 # Error msg
@@ -25,7 +26,7 @@ search=""
 github=""
 mail=""
 youtube=""
-if [ -f "$HOME/.cache/is-headphones" ];
+if [ $sinkDevice != "analog-output-speaker" ];
 then
   sink=""
 else
