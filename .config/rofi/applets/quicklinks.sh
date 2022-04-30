@@ -10,8 +10,8 @@ msg() {
 }
 
 # Browser
-if [[ -f /usr/bin/firefox ]]; then
-	app="firefox"
+if [[ -f /usr/bin/brave ]]; then
+	app="brave"
 elif [[ -f /usr/bin/chromium ]]; then
 	app="chromium"
 elif [[ -f /usr/bin/midori ]]; then
@@ -25,7 +25,7 @@ fi
 search=""
 github=""
 mail=""
-youtube=""
+twitter=""
 if [ $sinkDevice != "analog-output-speaker" ];
 then
   sink=""
@@ -40,7 +40,7 @@ else
 fi
 
 # Variable passed to rofi
-options="$search\n$sink\n$source\n$github\n$mail\n$youtube"
+options="$search\n$sink\n$source\n$github\n$mail\n$twitter"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Open In  :  Firefox" -dmenu -selected-row 0)"
 case $chosen in
@@ -59,8 +59,8 @@ case $chosen in
     $mail)
         $app https://mail.tutanota.com &
         ;;
-    $youtube)
-        $app https://www.youtube.com &
+    $twitter)
+        $app https://www.twitter.com &
         ;;
 esac
 
