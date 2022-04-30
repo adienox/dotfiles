@@ -27,13 +27,12 @@ def makeOrdinal(n):
         suffix = ['th', 'st', 'nd', 'rd', 'th'][min(n % 10, 4)]
     return str(n) + suffix
 
-def getData(url):
+def getData(id):
     '''
     Get metadata from youtube using the Youtube Data Api v3.
     Requires youtube link as a parameter and returns json data.
     Returnes (title, channelName, publishDate, tags, description) as a tuple.
     '''
-    id = url[32:]
 
     response = requests.get(f'https://youtube.googleapis.com/youtube/v3/videos?part=snippet&id={id}&key={apiKey}')
     response = json.loads(response.text)
@@ -57,7 +56,8 @@ def getData(url):
     return title, channelName, publishDate, listTag, description
 
 url = sys.argv[1]
-metadata = getData(url)
+id = url[32:]
+metadata = getData(id)
 
 ordinalCurrentDay = makeOrdinal(datetime.now().strftime("%d"))
 ndate = datetime.now().strftime(f"%b {ordinalCurrentDay}, %Y")
@@ -72,7 +72,7 @@ title:: [[{metadata[0]}]]
 published-on:: [[{metadata[2]}]]
 processed-on:: [[{ndate}]]
     - [[Youtube Embed]]
-        - {{{{youtube {url}}}}}
+        - <iframe width="1280" height="720" src="https://www.youtube.com/embed/{id}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     - [[Description]]
         - #+BEGIN_VERSE\n{metadata[4]}\n#+END_VERSE
     - [[Notes]]
