@@ -48,12 +48,6 @@ if [ -z $(pidof syncthing | awk '{print $1}') ]; then
   notify-send -i /usr/share/icons/Papirus/16x16/emblems/emblem-syncthing-active.svg "Syncthing activated" &
 fi
 
-# Starts up promnesia server
- if [ -z $(pgrep promnesia) ]; then
-   ~/.local/bin/promnesia serve >/dev/null &
-   notify-send "Promnesia" "server started"
- fi
-
 # Starts keepassxc (password manager)
 if [ -z $(pgrep keepassxc) ]; then
   keepassxc &
