@@ -15,7 +15,6 @@ bspc config single_monocle true
 bspc config focus_follows_pointer true
 
 bspc rule -a LibreWolf desktop='^1' follow=on
-bspc rule -a Emacs desktop='^2' state=tiled follow=on
 bspc rule -a rss desktop='^3' follow=on
 bspc rule -a Binance desktop='^3' follow=on
 bspc rule -a Caprine desktop='^4' follow=on
